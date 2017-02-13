@@ -22,6 +22,11 @@ else
     fi
 fi
 
-docker run -it --rm "$imageName" /bin/bash
+if ! [ -z "$DATA_DIR" ]; then
+    dataDir=`pushd "$DATA_DIR" > /dev/null && pwd && popd > /dev/null`    
+    docker run -it --rm --entrypoint /bin/bash -v ${dataDir}:/opt/myproject "$imageName"
+else
+    docker run -it --rm --entrypoint /bin/bash "$imageName"
+fi
 
 
