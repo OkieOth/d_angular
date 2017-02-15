@@ -5,7 +5,7 @@ scriptPos=${0%/*}
 
 source "$scriptPos/image_conf.sh"
 
-contName=npm_devserver
+contName=angular_devserver
 
 if [ -z $DATA_DIR ]; then
     echo "need a env variable DATA_DIR that points to project dir - cancel"

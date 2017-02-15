@@ -14,12 +14,13 @@ RUN     cd  /opt && \
         ln -s /opt/node/bin/node /usr/local/bin && \
         ln -s /opt/node/bin/npm /usr/local/bin
 
-RUN npm install -g @angular/cli && \
-        ln -s /opt/node/bin/ng /usr/local/bin && \
-        ln -s /opt/node/bin/ng-xi18n /usr/local/bin && \
-        ln -s /opt/node/bin/ngc /usr/local/bin && \
-        ln -s /opt/node/bin/tsc /usr/local/bin && \
-        ln -s /opt/node/bin/tsserver/usr/local/bin
+RUN npm install -g @angular/cli
+RUN npm install -g typescript
+
+RUN ln -s /opt/node/bin/ng /usr/local/bin && \
+    ln -s /opt/node/bin/ngc /usr/local/bin && \
+    ln -s /opt/node/bin/tsc /usr/local/bin && \
+    ln -s /opt/node/bin/tsserver /usr/local/bin
         
 
 EXPOSE 4200 
